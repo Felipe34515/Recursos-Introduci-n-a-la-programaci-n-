@@ -1,0 +1,39 @@
+1) Consultar pelicula más larga
+		Inception
+
+2) Consultar promedio
+		1h58 mintuos
+
+3) Consultar Estrenos
+2010	Get out, Icarus
+
+4) Consultar 18+
+	2
+5) Reagendar
+
+Icarus, 2210, Domingo, True 		False			Funcionó mal con la entrada "Icarus, 2210, Domingo, True" debería retornar False.
+Icarus, 2210, Domingo, False 		True			Funcionó mal con la entrada "Icarus, 2210, Domingo, False" debería retornar True
+
+Shrek, 803, Domingo, False 		False			Funcionó mal con la entrada "Shrek, 803, Domingo, False" debería retornar False
+Shrek, 1310, Domingo, False 		True			Funcionó mal con la entrada "Shrek, 1310, Domingo, False" debería retornar True
+	
+
+6) Verificar invitar
+Icarus, 18, False					True		Funcionó mal con la entrada "Icarus, 18, False" debería retornar True
+
+Get Out, 14, True					False		Funcionó mal con la entrada "Get Out, 14, True" debería retornar False	
+Get Out, 16, True					True		Funcionó mal con la entrada "Get Out, 16, True" debería retornar True
+Get Out, 16, False				False		Funcionó mal con la entrada "Get Out, 16, False" debería retornar False
+
+The Empire Strikes Back, 9, False		True		Funcionó mal con la entrada "The Empire Strikes Back, 9, False" debería retornar True
+
+Icarus, 15, False					True		Funcionó mal con la entrada "Icarus, 15, False" debería retornar True
+
+
+Buen trabajo, recuerda probar tu código con ejemplos en próximas ocasiones para verificar que todo funcione correctamente.
+
+Calificado por: Felipe Rueda
+
+
+
+	

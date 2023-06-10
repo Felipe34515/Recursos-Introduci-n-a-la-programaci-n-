@@ -1,0 +1,32 @@
+1) Cargar bien
+
+2) 2016 		termina en 'taybe mustafa yusein']}
+   2015 {}
+3)stephen anthony abas 2000 2005		termina en		[{'evento': "wrestling men's featherweight freestyle", 'anio': '2004', 'medalla': 'silver\n'}]
+
+4) china		termina en 			"basketball men's basketball", 'anio': '2016'}]	
+	
+5) Debería retornar {'united states': 314}
+
+6) basketball men's basketball	termina en 		mindaugas ukauskas']
+
+7) 7 				{'christopher andrew chris hoy': 7, 'jason francis kenny': 7, 'bradley marc wiggins': 8}
+
+
+8) {'bradley marc wiggins': 8}
+
+9) judo men's extra-lightweight  		{'japan': [3, 1, 2]}
+
+
+10) {'judith arndt': 5}
+
+11) china f				 1992, 'medalla': 'gold\n'}]}   
+
+
+12) 14.71	
+
+
+¡Buen trabajo!
+Calificado por Felipe Rueda
+
+
