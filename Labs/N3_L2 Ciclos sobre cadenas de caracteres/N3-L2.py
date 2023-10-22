@@ -59,24 +59,31 @@ def conteoPalabras(cadena: str):
         i += 1
     return rta
 
+
+# Tiene en cuenta todos todos los casos, a diferentecia del anterior
 def conteo_de_palabrasVersionPro (cadena: str)-> int:
-    respu=1
+    rta=1
     abecedario = list("abcdefghijklmnopqrstuvwxyz")
     
     for i in range(len(cadena)):
         palabra = False
         if cadena[i]==" ":
+            #verifica que la letra anterior o la pasada tengan letras, evitando extremos para no tener error
             if i != 0:
                 if (cadena[i-1] in abecedario):
                    palabra = True    
             elif i != len(cadena)-1:
                 if (cadena[i+1] in abecedario):
                     palabra = True  
+        #Si encuentra alguna letra at´ras o adelante, aumente una palabra
         if palabra:
-            respu += 1
+            rta += 1
+    #Casos base
     if cadena == "":
-        respu = 0
-    return  respu
+        rta = 0
+    elif cadena == " " and cadena[0] == " " and cadena[-1] == " ":
+        rta -= 1
+    return  rta
    
 # print(encontrarSubcadena(a, b))
 #print(encontrarSubcadena1(a, b))
@@ -85,4 +92,5 @@ def conteo_de_palabrasVersionPro (cadena: str)-> int:
 # print(eliminarDuplicados(c))
 # print(conteoCaracteres(a))
 # print(conteoPalabras(d))
-# print(conteo_de_palabrasVersionPro(a))
+a = " "
+print(conteo_de_palabrasVersionPro(a))
