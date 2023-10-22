@@ -26,6 +26,8 @@ def mostrar_menu()->None:
 def iniciar_aplicacion()->None:
     print("Bienvenido al laboratorio de condicionales")
     mostrar_menu()
+    # rta = mod.
+    print(("la respuesta es ") + str(rta))
 
 #PROGRAMA PRINCIPAL
 iniciar_aplicacion()

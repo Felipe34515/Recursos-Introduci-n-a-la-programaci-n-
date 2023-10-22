@@ -59,10 +59,30 @@ def conteoPalabras(cadena: str):
         i += 1
     return rta
 
+def conteo_de_palabrasVersionPro (cadena: str)-> int:
+    respu=1
+    abecedario = list("abcdefghijklmnopqrstuvwxyz")
+    
+    for i in range(len(cadena)):
+        palabra = False
+        if cadena[i]==" ":
+            if i != 0:
+                if (cadena[i-1] in abecedario):
+                   palabra = True    
+            elif i != len(cadena)-1:
+                if (cadena[i+1] in abecedario):
+                    palabra = True  
+        if palabra:
+            respu += 1
+    if cadena == "":
+        respu = 0
+    return  respu
+   
 # print(encontrarSubcadena(a, b))
-print(encontrarSubcadena1(a, b))
+#print(encontrarSubcadena1(a, b))
 # print(invertirSucadena1(a))
 # print(invertirSucadena2(a))
 # print(eliminarDuplicados(c))
 # print(conteoCaracteres(a))
 # print(conteoPalabras(d))
+# print(conteo_de_palabrasVersionPro(a))

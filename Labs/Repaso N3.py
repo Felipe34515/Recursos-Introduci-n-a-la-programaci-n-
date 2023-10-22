@@ -7,17 +7,16 @@ a = [ 34, 12, 6, 64, 3, 2, 1, 8]
 # for sin range
 def forIn(lista):
     for i in lista:
+        print(i)   
+# for Con range
+def forInRange(lista):
+    for i in range(0, len(lista)):
         print(i)
-               
+        
 # While que simula un for in 
 def whileSinRange(lista):
     i = 0
     while i <= len(lista):
-        print(i)
-        
-# for Con range
-def forInRange(lista):
-    for i in range(0, len(lista)):
         print(i)
 
 # While que simula un for in range
@@ -29,7 +28,7 @@ def whileConRange(lista):
 
 # print(forIn(a))
 # print(whileSinRange(a))
-# print(forInRange(a))
+print(forInRange(a))
 # print(whileConRange(a))
 
 # -------------------------
@@ -75,8 +74,8 @@ def leerArchivo(nombre):
 
 # leerArchivo(n)
 
-import os
-print(os.getcwd())
+# import os
+# print(os.getcwd())
           
  
 # -------------------------
@@ -150,7 +149,7 @@ def p6 (lista, evento):
     return rta
 
 
-print(p6(atletas, evento))
+# print(p6(atletas, evento))
 
 def mas_medallistas(atletas:list) ->dict:
     dicc={}

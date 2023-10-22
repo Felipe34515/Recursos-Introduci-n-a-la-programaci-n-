@@ -76,4 +76,3 @@ def adivinar_numero(numero:int)->str:
             print("Felicitaciones, encontró el número " + str(elegido))
         else:
             numero = int(input("No ha encontrado el numero, ingrese otro número del 0 al 9: "))
-    
