@@ -32,6 +32,7 @@ def Actividad2(estudiantes):
             rta.append({i:j})
     return rta
 def Actividad3(frase, tamanio):
+    
     rta = 0
     frase = frase.split(" ")
     for palabra in frase:

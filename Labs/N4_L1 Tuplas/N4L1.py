@@ -21,6 +21,9 @@ def inverso(t ):
         rta += (t[longitud],)
         longitud -= 1
     return rta
+
+def inverso2(t):
+    
         
 # print(inverso(t))
 
