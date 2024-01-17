@@ -1,4 +1,0 @@
-Nombre,Correo electrónico,Teléfono
-Ana Lopez,ana@email.com,555-123-4567
-Juan Perez,juan@email.com,555-234-5678
-Maria Hernandez,maria@email.com,555-345-6789

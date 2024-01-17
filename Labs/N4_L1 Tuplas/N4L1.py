@@ -23,7 +23,7 @@ def inverso(t ):
     return rta
 
 def inverso2(t):
-    
+    pass
         
 # print(inverso(t))
 

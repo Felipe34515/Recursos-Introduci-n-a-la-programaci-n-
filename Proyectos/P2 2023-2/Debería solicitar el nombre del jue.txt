@@ -1,0 +1,37 @@
+Debería solicitar el nombre del juego al usuario
+
+
+1)
+Debería retornar "Minecraft (2011)" para la entrada "Minecraft"
+
+2)					
+Debería retornar "El juego más corto es : Forza Horizon 5 y tarda horas 20 con 47 minutos en completarse"
+3)		
+Debería retornar "Terminar Minecraft tardaría 46 días" para la entrada "2" y "Minecraft"
+4)
+
+	16 				Debería retornar "Minecraft, Forza Horizon 5, The Legend of Zelda: Tears of the Kingdom" para la entrada "16"
+
+5)
+Minecraft 				Debería retornar "El videojuego Minecraft tiene un puntaje de 18.5" para la entrada "Minecraft"
+Forza Horizon 5				Debería retornar "El videojuego Forza Horizon 5 tiene un puntaje de 23.0" para la entrada "Forza Horizon 5"
+
+6)
+
+rol 					Debería retornar "Hay 2 juego/s de rol" para la entrada "rol"
+
+7)
+
+sandbox 					Para Debería retornar "El rating medio de los juegos de sandbox es 9.33" para la entrada "sandbox"
+					Para Debería retornar "Ningún juego es de Y" para la un género que no exista
+
+
+¡Buen trabajo!
+
+Calificado por Felipe Rueda
+
+¡Buen trabajo!
+
+Recuerda probar tu código antes de enviar y pedir ayuda a los monitores o en Cupitaller para tener una mejor nota la próxima vez :)
+
+Calificado por Felipe Rueda
