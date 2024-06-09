@@ -42,20 +42,20 @@ def ejecutar_buscar_partido(paises: dict):
     fecha = input("Ingrese la fecha del partido a buscar: ")
     buscar_partido = f.buscar_partido(paises, pais_sede, ciudad, fecha)
     if buscar_partido == None:
-        print("No se encontró el partido.")
+        print("No se encontrï¿½ el partido.")
     else:
         print(buscar_partido)
 
 def ejecutar_buscar_mayor_goleada(paises: dict):
-    """Funci—n que ejecuta la opci—n de buscar el partido con la mayor diferencia de goles.
-    Se debe imprimir resultado con el formato: "El partido con la mayor diferencia de goles fue: {equipo_local} vs {equipo_visitante} que quedó— {goles_local} - {goles_visitante}"
-    En caso de que no se encuentre el partido se debe imprimir el mensaje "No se encontr— el partido."
+    """Funciï¿½n que ejecuta la opciï¿½n de buscar el partido con la mayor diferencia de goles.
+    Se debe imprimir resultado con el formato: "El partido con la mayor diferencia de goles fue: {equipo_local} vs {equipo_visitante} que quedï¿½ {goles_local} - {goles_visitante}"
+    En caso de que no se encuentre el partido se debe imprimir el mensaje "No se encontrï¿½ el partido."
     """
     partido = f.buscar_mayor_goleada(paises)
     if partido:
-        print(f"El partido con la mayor diferencia de goles fue: {partido['equipo_local']} vs {partido['equipo_visitante']} que quedó— {partido['goles_local']} - {partido['goles_visitante']}")
+        print(f"El partido con la mayor diferencia de goles fue: {partido['equipo_local']} vs {partido['equipo_visitante']} que quedï¿½ {partido['goles_local']} - {partido['goles_visitante']}")
     else:
-        print("No se encontró el partido.")
+        print("No se encontrï¿½ el partido.")
 
 
 def ejecutar_buscar_primera_goleada(paises: dict):
@@ -63,10 +63,10 @@ def ejecutar_buscar_primera_goleada(paises: dict):
     Se debe imprimir el resultado con el formato: "La primera goleada en {pais} fue un partido que quedÃ³ {goles_local}-{goles_visitante} entre {equipo_local} y {equipo_visitante} en {fecha}"
     En caso de que no se encuentre el partido se debe imprimir el mensaje "En el {pais} no han habido goleadas"
     """
-    sede = str(input("Digite el país en el cual quiere buscar la primera goleada: "))
+    sede = str(input("Digite el paï¿½s en el cual quiere buscar la primera goleada: "))
     resultado = f.buscar_primera_goleada(paises, sede)
     if resultado:
-        print(f"La primera goleada en {sede} fue un partido que quedó {resultado['goles_local']}-{resultado['goles_visitante']} entre {resultado['equipo_local']} y {resultado['equipo_visitante']} en {resultado['fecha']}")
+        print(f"La primera goleada en {sede} fue un partido que quedï¿½ {resultado['goles_local']}-{resultado['goles_visitante']} entre {resultado['equipo_local']} y {resultado['equipo_visitante']} en {resultado['fecha']}")
     else:
         print(f"En el {sede} no han habido goleadas")  
 
@@ -75,40 +75,40 @@ def ejecutar_calcular_desempeno(paises: dict):
     Se debe imprimir el diccionario que retorna la funciÃ³n del mÃ³dulo que implementa la funcionalidad.
     En caso de que no se encuentre el paÃ­s se debe imprimir el mensaje "No se encontrÃ³ el paÃ­s."
     """
-    sede = input("Digite el nombre del país sede: ")
-    pais = input ("Ingrese el nombre la selección del país a buscar: ")
+    sede = input("Digite el nombre del paï¿½s sede: ")
+    pais = input ("Ingrese el nombre la selecciï¿½n del paï¿½s a buscar: ")
     resultado = f.calcular_desempeno(paises, sede, pais)
     if resultado:
         print(resultado)
     else:
-        print("No se encontró el país")
+        print("No se encontrï¿½ el paï¿½s")
 
 def ejecutar_buscar_pais_de_la_suerte(paises: dict):
     """FunciÃ³n que ejecuta la opciÃ³n de buscar el paÃ­s de la suerte.
     Se debe imprimir el resultado con el formato: "El paÃ­s de la suerte de {pais} fue {pais_suerte}"
     En caso de que no se encuentre el paÃ­s se debe imprimir el mensaje "No se encontrÃ³ el paÃ­s."
     """
-    seleccion = input("Ingrese el nombre de la selección a analizar: ")
+    seleccion = input("Ingrese el nombre de la selecciï¿½n a analizar: ")
     resultado = f.buscar_pais_de_la_suerte(paises, seleccion)
     if resultado:
-        print(f"El país de la suerte de {seleccion} fue {resultado}")
+        print(f"El paï¿½s de la suerte de {seleccion} fue {resultado}")
     else:
-        print ("No se encontró el país.")
+        print ("No se encontrï¿½ el paï¿½s.")
 
 def ejecutar_buscar_partidos_por_torneo_y_decada(paises: dict):
     """FunciÃ³n que ejecuta la opciÃ³n de buscar los partidos de un torneo en una dÃ©cada.
     Se deben imprimir los partidos del torneo con el formato 'Los partidos del torneo {torneo} en la dÃ©cada de {decada} fueron: ' y luego cada partido en una lÃ­nea.
     """
     torneo = input("Ingrese el nombre del torneo a buscar: ")
-    año = int(input("Ingrese el año en el que comienza la década a buscar: "))
-    resultado = f.buscar_partidos_por_torneo_y_decada(paises, torneo, año)
+    anio = int(input("Ingrese el anio en el que comienza la dï¿½cada a buscar: "))
+    resultado = f.buscar_partidos_por_torneo_y_decada(paises, torneo, anio)
     
     if resultado:
-        print(f"Los partidos del torneo {torneo} en la década de {año} a {año+10} fueron:")
+        print(f"Los partidos del torneo {torneo} en la dï¿½cada de {anio} a {anio+10} fueron:")
         for partido in resultado:
             print(partido)
     else:
-        print("No se encontraron partidos en esa década o torneo.")
+        print("No se encontraron partidos en esa dï¿½cada o torneo.")
 
 def ejecutar_buscar_partido_mas_jugado(paises: dict):
     """FunciÃ³n que ejecuta la opciÃ³n de buscar el partido mÃ¡s jugado.
@@ -117,7 +117,7 @@ def ejecutar_buscar_partido_mas_jugado(paises: dict):
     resultado = f.buscar_partido_mas_jugado(paises)
     partido = resultado["partido"]
     cantidad = resultado["cantidad"]
-    print(f"El partido más jugado fue {partido} que se jugó {cantidad} veces")
+    print(f"El partido mï¿½s jugado fue {partido} que se jugï¿½ {cantidad} veces")
     
 def ejecutar_buscar_paises_sin_jugar(paises: dict):
     """FunciÃ³n que ejecuta la opciÃ³n de buscar los paÃ­ses que no jugaron.
@@ -125,23 +125,23 @@ def ejecutar_buscar_paises_sin_jugar(paises: dict):
     """
     resultado = f.buscar_paises_sin_jugar(paises)
     if resultado:
-        print("Los países en los que se jugaron partidos pero cuyas selecciones no jugaron fueron: ")
+        print("Los paï¿½ses en los que se jugaron partidos pero cuyas selecciones no jugaron fueron: ")
         for pais in resultado.split(","):
             print(pais)
     else:
-        print("No se encontraron países con esa condición.")
+        print("No se encontraron paï¿½ses con esa condiciï¿½n.")
     
 def ejecutar_buscar_ganador_por_puntos(paises: dict):
     """FunciÃ³n que ejecuta la opciÃ³n de buscar el ganador de un torneo por puntos.
     Se debe imprimir el resultado con el formato: "El ganador del torneo {torneo} en el aÃ±o {anio} fue {ganador}"
     """
     torneo = input("Digfite el nombre del torneo a buscar: ")
-    año = input("Digite el año en el que desea buscar: ")
-    resultado = f.buscar_ganador_por_puntos(paises, torneo, año)
+    anio = input("Digite el anio en el que desea buscar: ")
+    resultado = f.buscar_ganador_por_puntos(paises, torneo, anio)
     if resultado:
-        print(f"El ganador del torneo {torneo} en el año {año} fue {resultado}.")
+        print(f"El ganador del torneo {torneo} en el anio {anio} fue {resultado}.")
     else:
-        print("No se encontró el torneo o el torneo no se jugó en el año ingresado.")
+        print("No se encontrï¿½ el torneo o el torneo no se jugï¿½ en el anio ingresado.")
 
 def mostrar_menu():
     """Imprime las opciones de ejecuciÃ³n disponibles para el usuario.
