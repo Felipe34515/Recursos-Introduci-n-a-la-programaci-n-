@@ -19,10 +19,36 @@ def cargar_datos(ruta: str) -> pd.DataFrame:
 
 # Parte 2
 # Requerimiento 1
-def piechart_anio(df: pd.DataFrame, año: int):
+def piechart_anio (dataframe:pd.DataFrame, anio:str) -> pd.DataFrame:
+    """
+    se nos pide que creemos una grafica tipo pie que 
+    muestre el porcentage de accesos fijos en una año especificado
+    
+
+    Parameters
+    ----------
+    anio : str
+        DESCRIPTION.
+        el año que se ingresa
+    dataframe : pd.DataFrame
+        DESCRIPTION.
+
+    Returns
+    -------
+    excel : TYPE
+        DESCRIPTION.
+
+    """
+    rta = dataframe[dataframe["AÑO"]== anio]
+    rta = rta.groupby("DEPARTAMENTO")["No. ACCESOS FIJOS"].sum()
+    rta = rta.sort_values(ascending = False).head(20)
+    rta.plot(kind="pie", autopct = "%1.1f%%", textprops = {"fontsize":6.5}, title = "Top 20 departamentos con Accesos Fijos a internet en el " + str(anio))
+    plt.ylabel("")
+    plt.show()
+    
+def piechart_anioV2(df: pd.DataFrame, año: int):
     df_año = df[df["AÑO"] == año]
     top_20 = df_año.groupby("DEPARTAMENTO")["No. ACCESOS FIJOS"].sum().nlargest(20)
-    
     plt.figure(figsize=(10, 8))
     top_20.plot.pie(autopct='%1.1f%%')
     plt.title(f"Top 20 departamentos con mayor número de accesos fijos a internet en {año}")
@@ -30,7 +56,35 @@ def piechart_anio(df: pd.DataFrame, año: int):
     plt.show()
 
 # Requerimiento 2
-def bar_chart_top_20_ratio(df: pd.DataFrame, departamento: str):
+def bar_chart_top_20_ratio ( dataframe:pd.DataFrame, departamento: str) -> pd.DataFrame:
+    """
+    se nos pide que creemos una grafica de diagrama de barras donde grafiquemos 
+    el "ratio" que es igual al numero de accesos fijo dividido sobre la poblacion dane,
+    se nos pide que grafiquemos el ratio por los municipios de un departamento especificado
+
+    Parameters
+    ----------
+    departamento : str
+        DESCRIPTION.
+    dataframe : pd.DataFrame
+        DESCRIPTION.
+
+    Returns
+    -------
+    excel : TYPE
+        DESCRIPTION.
+
+    """
+    rta = dataframe[dataframe["DEPARTAMENTO"]== departamento]
+    rta = rta.groupby("MUNICIPIO")[["No. ACCESOS FIJOS", "POBLACIÓN DANE"]].sum()
+    rta["ratio"] = rta["No. ACCESOS FIJOS"]/ rta["POBLACIÓN DANE"]
+    rta = rta.groupby("MUNICIPIO")["ratio"].sum()
+    rta = rta.sort_values( ascending = False).head(20)
+    rta.plot(kind = "bar", title = "Top 20 municipios con mayor relacion de Accesos Fijos a Internet por Poblacion en " + str(departamento))
+    plt.ylabel("Relacion Accesos Fijos a Internet por Poblacion") 
+    plt.show()
+    
+def bar_chart_top_20_ratioV2(df: pd.DataFrame, departamento: str):
     df_depto = df[df["DEPARTAMENTO"] == departamento]
     df_depto["Ratio"] = df_depto["No. ACCESOS FIJOS"] / df_depto["POBLACIÓN DANE"]
     top_20 = df_depto.groupby("MUNICIPIO")["Ratio"].sum().nlargest(20)
@@ -43,7 +97,45 @@ def bar_chart_top_20_ratio(df: pd.DataFrame, departamento: str):
     plt.show()
 
 # Requerimiento 3
-def boxplot_provincias(df: pd.DataFrame, departamento: str, fontsize: str = 'small'):
+def boxplot_provincias (dataframe:pd.DataFrame, departamento: str) -> pd.DataFrame:
+    """
+    aqui se nos pide que hagamos un diagrama de cajas y bigotes de los accesos fijos de por provincias  
+    de un departamento especificado
+
+    Parameters
+    ----------
+    departamento : str
+        DESCRIPTION.
+    dataframe : pd.DataFrame
+        DESCRIPTION.
+
+    Returns
+    -------
+    None.
+
+    """
+    rta = dataframe[dataframe["DEPARTAMENTO"]== departamento]
+    provincias = sorted(rta["PROVINCIA"].unique())
+    columnas = 2
+    numero_de_provincias = len(provincias)
+    filas = ((numero_de_provincias+1)//2)
+    imagen, coordenadas = plt.subplots(filas, columnas, figsize = (13,7),constrained_layout = True)
+    coordenadas = coordenadas.flatten()
+    for elemento in zip(coordenadas, provincias):
+    #aqui lo que hago es guardar en tuplas las provincias en su respectivo puesto 
+    #usando una lista vacia [puesto en la lista, provincia] 
+        grafica_provincias = rta[rta["PROVINCIA"] == elemento[1]]["No. ACCESOS FIJOS"]
+        #aqui lo que hago es filtrar para que nos den el numero de accesos fijos por provincia
+        bigotes = elemento[0].boxplot(grafica_provincias,vert = False)
+        elemento[0].set_title(elemento[1])
+        elemento[0].set_ylabel("No. ACCESOS FIJOS")
+    if numero_de_provincias % 2 != 0:
+        
+        for i in range (numero_de_provincias, len(coordenadas)):
+            imagen.delaxes(coordenadas[i])
+    plt.show()
+    
+def boxplot_provinciasV2(df: pd.DataFrame, departamento: str, fontsize: str = 'small'):
     df_depto = df[df["DEPARTAMENTO"] == departamento]
     provincias = df_depto["PROVINCIA"].unique()
     
