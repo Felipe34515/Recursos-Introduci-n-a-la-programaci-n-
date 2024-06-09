@@ -1,4 +1,7 @@
 import datetime
+
+
+
 def cargar_datos(ruta_archivo: str)->dict:
      ocupaciones={}
      archivo=open(ruta_archivo)          
@@ -19,29 +22,33 @@ def cargar_datos(ruta_archivo: str)->dict:
            linea =archivo.readline()     
      archivo.close()     
      return ocupaciones 
+ 
+ 
+cargar_datos("colombianos.csv")
+
+
 def mayor_lectores(diccionario:dict)->str:
     mayor=0
     maxi=""
-    a=0
-    for x in diccionario.values():
-        for y in x:
-            for llave,valor in y.items():
-                if llave=="nombre":
-                    a=valor
-                if llave=="numero_lectores" and valor>=mayor:
-                    mayor=valor
-                    maxi=a
+    for deporte in diccionario.keys():
+        for atleta in diccionario[deporte]:
+            if atleta["numero_lectores"] >=mayor:
+                mayor=atleta["numero_lectores"]
+                maxi=atleta["nombre"]
     return maxi
+
+
 def hay_3_colombianos(diccionario:dict, ocupacion:str, genero:str, lectores:int)->bool:
     numero=0
     centinela=False
-    for llave,valor in diccionario.items():
-            for y in valor:
-                if (y["genero"]==genero) and (y["numero_lectores"]>lectores) and (llave==ocupacion):
-                    numero+=1
+    for colombiano in diccionario[ocupacion]:
+        if (colombiano["genero"]==genero) and (colombiano["numero_lectores"]>lectores):
+            numero+=1
     if numero>=3:
         centinela=True
     return centinela
+
+
 def promedio_lectores(diccionario:dict, ocupacion:str)->float:
     promedio=0
     suma=0
@@ -53,6 +60,9 @@ def promedio_lectores(diccionario:dict, ocupacion:str)->float:
                 contador+=1
     promedio=suma/contador
     return round(promedio,2)    
+
+
+
 def mayor_rating(diccionario:dict)->int:
     mayor=0
     maxi=""
@@ -90,6 +100,8 @@ def calcular_edad(diccionario:dict)->dict:
                     edad=y["anio_muerte"]-y["anio_nacimiento"]
                 y["edad"]=edad
     return diccionario
+
+
 def colombianos_fallecidos(diccionario:dict)->dict:
     lista=[]
     ocupaciones={}
@@ -101,3 +113,4 @@ def colombianos_fallecidos(diccionario:dict)->dict:
                        ocupaciones[llave] = []
                     ocupaciones[llave].append(y)
     return ocupaciones 
+

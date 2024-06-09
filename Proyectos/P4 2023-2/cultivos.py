@@ -18,10 +18,10 @@ df = cargar_datos("cultivos.csv")
 
 def requ1 (departamento, df):
     df=df[(df["Departamento"]==departamento)].groupby("Tipo_Cultivo").Toneladas.sum()
-    df.plt(kind="pie",  title="Distribución de cultivos en "+str(departamento),autopct='%.1f%%', fontsize=10)
+    df.plot(kind="pie",  title="Distribución de cultivos en "+str(departamento),autopct='%.1f%%', fontsize=10)
     plt.show()
 
-#req1 = requ1("Vaupes", df )
+# req1 = requ1("Vaupes", df )
 
 def requ2(df):
     df = df.groupby(by= "Cultivo").sum()
@@ -34,10 +34,12 @@ def requ2(df):
 
 def requ3 (df, minimo, maximo):
     df = df[(df["Toneladas"] >= minimo) & (df["Toneladas"] <= maximo)].copy()
-    df.plot(kind="box", column="Toneladas", by="Tipo_Cultivo", vert=False, title="Toneladas por tipo de cultivo", figsize=(9,5))   
+    # df = df[df["Tipo_Cultivo"] == "Tuberculos Y Platanos"]
+    df.plot(kind="box", column="Toneladas", by="Tipo_Cultivo", vert=False, title="Toneladas por tipo de cultivo", figsize=(9,5))
+    plt.grid(True, axis='x', linestyle='--', color='gray', alpha=0.5)
     plt.show()
     
-requ3(df, 2000, 10000)
+a = requ3(df, 2000, 10000)
 
 
 
@@ -198,7 +200,36 @@ def requ8 (cultivo, tupla):
     plt.title("Producción en toneladas de " + cultivo, fontsize='x-small')
     plt.show()      
     
-    
+def barrioPelgroso(matriz):
+    x,y = 0,0
+    mayor = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            suma = 0
+            if i!=0:
+                suma+= matriz[i-1][j]
+            if j!=0:
+                suma+= matriz[i-1][j-1]
+            if j!=0 and i!=0:
+                suma+= matriz[i-1][j-1]
+            if i!=len(matriz)-1:
+                suma+= matriz[i+1][j]
+            if j!=len(matriz[i])-1:
+                suma+= matriz[i][j+1]
+            if i!=len(matriz)-1 and j!=len(matriz[i])-1:
+                suma+= matriz[i+1][j+1]
+            if j!=0 and i!=len(matriz)-1:
+                suma+= matriz[i+1][j-1]
+            if j!=len(matriz[i])-1 and i!=0:
+                suma+= matriz[i-1][j+1]
+            
+            if suma > mayor:
+                mayor = suma
+                x = i
+                y = j
+    return (x,y)
+
+# print(barrioPelgroso(b[0]))
     
 
 # requ8 = requ8("Plantas Aromaticas Condimentarias Y Medicinales", tupla)
