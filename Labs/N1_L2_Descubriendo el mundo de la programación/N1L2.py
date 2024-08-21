@@ -1,49 +1,68 @@
-# n = input ("Por favor, ingrese su nombre: ")
+# Autor: Felipe Rueda
 
-# radio = 5
-# print("El volumen de la esfera es: ", 4/3 * 3.1416 * radio**3)
 
-# print(abs(round(-34.2765, 1)))
+def actividad1 ():
+    """ 
+    Para obtener el perfil anterior, usted debe construir un programa que le solicite al usuario 
+    los nombres de 3 estudiantes, junto con sus respectivos años de nacimiento y que imprima 
+    en pantalla la información del perfil.
+    """
+    estudiante1= input("Ingrese el nombre del estudiante 1: ")
+    anioNacimiento = input("Ingrese el año de nacimiento del estudiante 1: ")
+    estudiante2= input("Ingrese el nombre del estudiante 2: ")
+    anioNacimiento2 = input("Ingrese el año de nacimiento del estudiante 2: ")
+    estudiante3= input("Ingrese el nombre del estudiante 3: ")
+    anioNacimiento3 = input("Ingrese el año de nacimiento del estudiante 3: ")
 
-# print(str(float(str(2) * 3 + "1.123")) + "321")
+    edad1 = 2021 - int(anioNacimiento)
+    edad2 = 2021 - int(anioNacimiento2)
+    edad3 = 2021 - int(anioNacimiento3)
 
-#Actividad 2
-def cambiar_valores(x1, x2, x3):
-    x1, x2, x3 = x3, x1, x2
-    return x1, x2, x3
+    mayor = max(edad1, edad2, edad3)
+    menor = min(edad1, edad2, edad3)
 
-def cambiar_valores_2(x1, x2, x3):
-    aux=x1
-    x1=x2
-    x2=x3
-    x3=aux
-    return x1, x2, x3
+    print(estudiante1 + " este año cumple " + str(edad1) + " años.")
+    print(estudiante2 + " este año cumple " + str(edad2) + " años.")
+    print(estudiante3 + " este año cumple " + str(edad3) + " años.")
+    print("el promedio de edad de los estudiantes es: " + str(round((edad1 + edad2 + edad3) / 3),2))
+    print("La diferencia de edad entre el mayor y el menor es: " + str(mayor - menor) + " años.")
+    
+# actividad1()
 
-# Actividad 3
-def calcular_IVA(precio):
-    IVA = precio * 0.19
-    propina = precio * 0.10
-    total = precio + IVA + propina
-    rta = "Para la compra realizada, el valor que corresponde al IVA es de $" + str(IVA) + " pesos y la propina es de $"+ str(propina) + " pesos, para un gran total de $"+ str(total) + " pesos"
-    return rta
-# print(calcular_IVA(10000))
+def actividad2(segundos):
+    """
+    Escriba un programa que convierta una medida en tiempo en segundos a días, horas, 
+    minutos y segundos. Para esto debe solicitar al usuario un valor entero que va a 
+    representar la medida de tiempo en segundos.
+    Su programa debe informar el resultado de la conversión con un mensaje de la forma: “El 
+    tiempo ingresado corresponde a 11 días, 10 horas, 17 minutos y 36 segundos”
+    """
+    segundos = int(input("Ingrese la cantidad de segundos: "))
+    minutos = segundos // 60
+    segundos = segundos % 60
+    horas = minutos // 60
+    días = horas // 24
+    horas = horas % 24
+    print("Días: " + str(días) + " Horas: " + str(horas) + " Minutos: " + str(minutos) + " Segundos: " + str(segundos))
+    
+# actividad2(100000)
+    
+def actividad3():
+    """
+    En esta actividad usted deberá escribir un programa que calcule la fuerza de gravedad 
+    universal entre dos cuerpos celestes dadas sus masas y la distancia entre ellos. Para esto, 
+    debe solicitar al usuario la masa de cada uno de los planetas y la distancia que los separa, 
+    y una vez realizada la operación deberá informar al usuario el resultado con el siguiente 
+    mensaje: “La fuerza gravitacional es: 3.55e22 N
+    """
+    masa1 = float(input("Ingrese la masa del primer cuerpo celeste (kilogramos): "))
+    masa2 = float(input("Ingrese la masa del segundo cuerpo celeste (kilogramos): "))
+    distancia = float(input("Ingrese la distancia entre los cuerpos celestes (metros): "))
+    G = 6.674e-11
+    fuerza = G * ((masa1 * masa2) / distancia**2)
+    print("La fuerza gravitacional es: " + str(fuerza) + " N")
+    
+# actividad3()
+    
 
-#Actividad 4
-def perfil_estudiante():
-    print("Por favor, ingrese los datos de los estudiantes")
-    nombre_1 = input("Por favor, ingrese su nombre: ")
-    edad_1 = input("Por favor, ingrese su edad: ")
-    nombre_2 = input("Por favor, ingrese su nombre: ")
-    edad_2 = input("Por favor, ingrese su edad: ")
-    nombre_3 = input("Por favor, ingrese su nombre: ")
-    edad_3 = input("Por favor, ingrese su edad: ")
-    rta = nombre_1 + " este año cumple " + edad_1 + " años. "
-    rta += "\n" + nombre_2 + " este año cumple " + edad_2 + " años. "
-    rta += "\n" + nombre_3 + " este año cumple " + edad_3 + " años. "
-    rta += "\n" + "El promedio de edad entre los estudiantes es de " + str((int(edad_1) + int(edad_2) + int(edad_3)) / 3) + " años."
-    rta += "\n" + "La diferencia de edad entre el mayor y el menor estudiante " + str(max(int(edad_1), int(edad_2), int(edad_3)) - min(int(edad_1), int(edad_2), int(edad_3))) + " años."
-    return rta
 
-# print(perfil_estudiante())
-print("El programa ha comenzado.")
-nombre_1 = input("Por favor, ingrese su nombre: ")
