@@ -21,7 +21,13 @@ anio = 1984
 # print(bisesto1(anio))
 # print(bisesto2(anio))
 
-
+def clasificar(a1:float, a2:float, a3:float)-> str:
+    if a1==a2 and a2==a3:
+        rta = "Equilátero"
+    elif a1==a2 or a2==a3 or a1==a3:
+        rta = "Isósceles"
+    else:
+        rta = "Escaleno"
 
 def solucinar(a,b,c):
     i = ((b**2)- 4*a*c)
