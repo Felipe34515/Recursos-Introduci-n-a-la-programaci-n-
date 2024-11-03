@@ -16,19 +16,21 @@ def forInRange(lista):
 # While que simula un for in 
 def whileSinRange(lista):
     i = 0
-    while i <= len(lista):
-        print(i)
+    while i < len(lista):
+        print(lista[i])
+        i += 1
 
 # While que simula un for in range
 def whileConRange(lista):
     i = 0
-    while i <= len(lista):
-        print(a[i])
+    while i < len(lista):
+        print(i)
+        i += 1
         
 
 # print(forIn(a))
 # print(whileSinRange(a))
-print(forInRange(a))
+# print(forInRange(a))
 # print(whileConRange(a))
 
 # -------------------------
@@ -53,7 +55,7 @@ def sacarTodo(diccionario):
         
 # print(sacarLlaves(d))
 # print(sacarValores(d))
-# print(sacarTodo(d))
+print(sacarTodo(d))
 
 
 # -------------------------
