@@ -66,8 +66,19 @@ def ejecutar_buscar_restaurantes_en_area(estados: dict) -> None:
     "Se encontraron {número} restaurantes en el área definida."
 
     """
-    # TODO1: Implemente la función tal y como se describe en la documentación.
-    pass
+    # TODO1 - Solución:
+    latitud_min = float(input("Ingrese la latitud mínima: "))
+    latitud_max = float(input("Ingrese la latitud máxima: "))
+    longitud_min = float(input("Ingrese la longitud mínima: "))
+    longitud_max = float(input("Ingrese la longitud máxima: "))
+
+    restaurantes_encontrados = r.buscar_restaurantes_en_area(estados, latitud_min, latitud_max, longitud_min, longitud_max)
+    
+    if restaurantes_encontrados != []:
+        mostrar_restaurantes(restaurantes_encontrados)
+        print("Se encontraron {} restaurantes en el área definida.".format(len(restaurantes_encontrados)))
+    else:
+        print("No se encontraron restaurantes en el área definida.")
 
 
 def ejecutar_buscar_restaurante_mas_sucursales(estados: dict) -> None:
@@ -83,8 +94,13 @@ def ejecutar_buscar_restaurante_mas_sucursales(estados: dict) -> None:
     En cualquier otro caso, se muestra el nombre del restaurante con más sucursales y la cantidad de sucursales en el siguiente formato:
     "El restaurante con más sucursales en {estado} es '{nombre_restaurante}' con {numero_sucursales} sucursales."
     """
-    # TODO2: Implemente la función tal y como se describe en la documentación.
-    pass
+    # TODO2 - Solución:
+    estado = input("Ingrese el estado donde desea buscar: ")
+    resultado = r.buscar_restaurante_mas_sucursales(estados, estado)
+    if resultado["nombre_restaurante"] != "":
+        print("El restaurante con más sucursales en {} es '{}' con {} sucursales.".format(estado, resultado["nombre_restaurante"], resultado["numero_sucursales"]))
+    else:
+        print("No se encontraron restaurantes en el estado {}.".format(estado))
 
         
 def ejecutar_estandarizar_direcciones(estados: dict) -> None:
@@ -95,7 +111,7 @@ def ejecutar_estandarizar_direcciones(estados: dict) -> None:
         estados (dict): Diccionario de estados.
 
     A modo de ejemplo, se muestra el primer restaurante de California (usando la función: mostrar_restaurante(...)) 
-    antes y después de estandarizar las direcciones.        
+    antes y después de estandarizar las direcciones.
     """
     if "California" in estados and estados["California"] != []:
         print("Primer restaurante de California antes de estandarizar su dirección:")
@@ -120,8 +136,14 @@ def ejecutar_buscar_restaurantes_palindromos(estados: dict) -> None:
 
     En cualquier otro caso, imprime todos los restaurantes (usando la función: mostrar_restaurantes(...)) con nombres palíndromos encontrados.
     """
-    # TODO3: Implemente la función tal y como se describe en la documentación.
-    pass
+    # TODO3 - Solución:
+    restaurantes_palindromos = r.buscar_restaurantes_palindromos(estados)
+    
+    if restaurantes_palindromos != []:
+        print("Restaurantes cuyos nombres son palíndromos:")
+        mostrar_restaurantes(restaurantes_palindromos)
+    else:
+        print("No se encontraron restaurantes cuyos nombres sean palíndromos.")
 
 
 def ejecutar_buscar_restaurante_cercano(estados: dict) -> None:
@@ -133,8 +155,12 @@ def ejecutar_buscar_restaurante_cercano(estados: dict) -> None:
 
     Imprime el restaurante que es más cercano al punto de referencia (usando la función: mostrar_restaurante(...)).
     """
-    # TODO4: Implemente la función tal y como se describe en la documentación.
-    pass
+    # TODO4 - Solución:
+    latitud_ref = float(input("Ingrese la latitud del punto de referencia: "))
+    longitud_ref = float(input("Ingrese la longitud del punto de referencia: "))
+
+    restaurante_cercano = r.buscar_restaurante_cercano(estados, latitud_ref, longitud_ref)
+    mostrar_restaurante(restaurante_cercano)
 
 
 def ejecutar_buscar_restaurante_preferido(estados: dict) -> None:
@@ -149,8 +175,21 @@ def ejecutar_buscar_restaurante_preferido(estados: dict) -> None:
 
     En cualquier otro caso, imprime el restaurante preferido encontrado (usando la función: mostrar_restaurante(...)).
     """
-    # TODO5: Implemente la función tal y como se describe en la documentación.
-    pass
+    # TODO5 - Solución:
+    latitud_min = float(input("Ingrese la latitud mínima: "))
+    latitud_max = float(input("Ingrese la latitud máxima: "))
+    longitud_min = float(input("Ingrese la longitud mínima: "))
+    longitud_max = float(input("Ingrese la longitud máxima: "))
+    precio_maximo = str(input("Ingrese el precio máximo que está dispuesto a pagar ($, $$, $$$ o $$$$): "))
+    minimo_reviews = int(input("Ingrese el número mínimo de reviews que debe tener el restaurante: "))
+    rating_minimo = float(input("Ingrese el rating mínimo que debe tener el restaurante: "))
+
+    resultado = r.buscar_restaurante_preferido(estados, latitud_min, latitud_max, longitud_min, longitud_max, precio_maximo, minimo_reviews, rating_minimo)
+    
+    if resultado is not None:
+        mostrar_restaurante(resultado)
+    else:
+        print("No se encontró un restaurante que cumpla con las preferencias.")
 
 
 # Función principal:
