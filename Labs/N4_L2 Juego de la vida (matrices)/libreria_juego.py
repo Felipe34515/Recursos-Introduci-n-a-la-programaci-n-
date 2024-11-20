@@ -43,8 +43,7 @@ def cuantas_vecinas_vivas(tablero:list, fila:int, columna:int)->int:
         col (int): columna de la casilla que se va a explorar
     Retorno: int
         La cantidad de casillas vecinas de la casilla fil,col que contienen células vivas.
-    """
-    #TODO: Completar la función según la documentación                
+    """         
 
     cel_vivas= 0
     n=len(tablero)
@@ -66,8 +65,7 @@ def regla_nacimiento(tablero:list, fila:int, columna:int)->bool:
         col (int): columna de la casilla que se va a explorar
     Retorno: bool
         True si la casilla cumple con la regla de nacimiento. False de lo contrario.
-    """
-    #TODO: Completar la función según la documentación          
+    """        
     return cuantas_vecinas_vivas(tablero, fila, columna)==3
 
 def regla_supervivencia(tablero:list, fil:int, col:int)->bool:
@@ -103,8 +101,7 @@ def realizar_jugada(tablero:list)-> list:
 
     for i in range(0,filas):
         nuevo_tablero.append([0] * columnas)
-
-    #TODO: Completar la función según la documentación        
+      
     n=len(tablero)
     m=len(tablero[0])
     for i in range(0,n):
