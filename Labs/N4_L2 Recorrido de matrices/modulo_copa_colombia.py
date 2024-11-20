@@ -93,21 +93,16 @@ def partidos_jugados(tablero_goles: list)->int:
     return rta/2
 
 def equipo_mas_goleador(tablero_goles: list, equipos:dict)->list:
-    goles = []
-    grupos = []
-    for llave in equipos:
-        grupos.append(llave)
-    for lista in tablero_goles:
-        a = 0
-        for i in lista:
-            if i >0:
-                a += i
-        goles.append(a) 
-        
-    maximo = max(goles)
-    posicion = goles.index(maximo)
-    rta = grupos[posicion]
-    return rta
+    maxi_goles = 0
+    for i in range(len(tablero_goles)):
+        suma = 0
+        for j in range(len(tablero_goles[i])):
+            if tablero_goles[i][j] != -2 and tablero_goles[i][j] != -1:
+                suma += tablero_goles[i][j]
+        if suma > maxi_goles:
+            maxi_goles = suma
+            equipo_mas_goleador = i
+    return equipos[equipo_mas_goleador]
     
         
 
@@ -121,7 +116,20 @@ def equipo_mas_goleado(tablero_goles: list, equipos:dict)->str:
     Retorno: str
         El nombre del equipo más goleado del campeonato
     """
-    return "Ninguno"
+    columna_goleada = 0
+    maxi = 0
+    lista = [0] * 8
+    for i in range(len(tablero_goles)):
+        suma = 0
+        for j in range(len(tablero_goles[i])):
+            if tablero_goles[j][i] != -2 and tablero_goles[j][i] != -1:
+                suma += tablero_goles[j][i]
+        lista[j] = suma
+    for i in range(len(lista)):
+        if lista[i] > maxi:
+            maxi = lista[i]
+            columna_goleada = i
+    return equipos[columna_goleada]
 
 
 def partidos_empatados(tablero_goles: list)->int:
@@ -154,7 +162,12 @@ def mayor_numero_goles(tablero_goles: list)->int:
     Retorno: int
         El mayor número de goles marcados en un partido del campeonato
     """
-    return 0
+    rta = 0
+    for i in range(len(tablero_goles)):
+        for j in range(len(tablero_goles[i])):
+            if tablero_goles[i][j] + tablero_goles[j][i] > rta:
+                rta = tablero_goles[i][j] + tablero_goles[j][i]
+    return rta
 
 
 
