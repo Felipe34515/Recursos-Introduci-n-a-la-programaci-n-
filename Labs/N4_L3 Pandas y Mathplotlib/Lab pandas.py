@@ -86,8 +86,8 @@ df = cargar_datos("exportaciones.csv")
 
 # distribucion_banano(df)
 # graficaBar(df)
-# evolucion_banano(df)
 generar_reporte(df, "reporte.txt")
+# evolucion_banano(df)
 # mas_importan(df)
 
 
